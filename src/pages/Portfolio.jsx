@@ -92,11 +92,15 @@ export default function Portfolio() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mt-8">
-          {experiences.slice(0, 2).map((exp) => (
+          {experiences.map((exp) => (
             <Card key={exp.id} className="border-0 shadow-lg hover:shadow-xl transition-all group">
               <CardContent className="p-8">
-                <div className="h-24 flex items-center justify-center mb-6 bg-gray-50 rounded-lg group-hover:bg-gray-100 transition-colors">
-                  <Briefcase size={48} className="text-gray-400" />
+                <div className="h-24 flex items-center justify-center mb-6 bg-gray-50 rounded-lg p-4 group-hover:bg-gray-100 transition-colors">
+                  {exp.logo ? (
+                    <img src={exp.logo} alt={`${exp.organization} logo`} className="max-h-full max-w-full object-contain" />
+                  ) : (
+                    <Briefcase size={48} className="text-gray-400" />
+                  )}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{exp.title}</h3>
                 <p className="text-gray-600 mb-2">{exp.organization}</p>
