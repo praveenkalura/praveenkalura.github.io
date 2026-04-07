@@ -4,7 +4,6 @@ import {
   ChevronRight,
   FileText,
   Github,
-  GraduationCap,
   Linkedin,
   Mail,
   Phone,
@@ -56,34 +55,37 @@ export default function Portfolio() {
         </nav>
       </header>
 
-      <SectionFrame id="about" className="bg-gray-50 pt-32">
-        <div className="text-center mb-4">
-          <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">MEET THE RESEARCHER</p>
-        </div>
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{profileData.name}</h2>
-            <p className="text-xl text-gray-600 mb-6">{profileData.role}</p>
-            <p className="text-gray-700 leading-relaxed mb-6">{profileData.about}</p>
-            <p className="text-gray-700 leading-relaxed">{profileData.expertise}</p>
+      <section id="about" className="relative min-h-[620px] overflow-hidden px-6 pt-28 pb-16 text-white lg:px-8">
+        <img src={images.header} alt="Himalayan mountain landscape" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
+        <div className="absolute inset-0 bg-black/20" />
+
+        <div className="relative z-10 mx-auto flex min-h-[476px] max-w-7xl items-center">
+          <div className="max-w-3xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-teal-100">MEET THE RESEARCHER</p>
+            <h1 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl">{profileData.name}</h1>
+            <p className="mb-6 text-xl font-medium text-teal-50 md:text-2xl">{profileData.role}</p>
+            <p className="mb-5 max-w-2xl text-base leading-8 text-gray-100 md:text-lg">{profileData.bio}</p>
+            <p className="max-w-2xl text-base leading-8 text-gray-100 md:text-lg">{profileData.expertise}</p>
           </div>
-          <div className="flex justify-center">
-            <img src={images.profile} alt={profileData.name} className="w-full max-w-sm rounded-lg shadow-lg object-cover" />
-          </div>
         </div>
-      </SectionFrame>
+      </section>
 
       <SectionFrame>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {education.map((edu) => (
             <Card key={edu.id} className="border-0 shadow-lg hover:shadow-xl transition-all group">
               <CardContent className="p-8">
-                <div className="h-24 flex items-center justify-center mb-6 bg-gray-50 rounded-lg group-hover:bg-gray-100 transition-colors">
-                  <GraduationCap size={48} className="text-gray-400" />
+                <div className="flex items-start gap-5">
+                  <div className="flex h-20 w-24 flex-shrink-0 items-center justify-center rounded-lg bg-gray-50 p-3 group-hover:bg-gray-100 transition-colors">
+                    <img src={edu.logo} alt={`${edu.institution} logo`} className="max-h-full max-w-full object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{edu.degree}</h3>
+                    <p className="text-gray-600 mb-4">{edu.institution}</p>
+                    <p className="text-sm text-gray-500">{edu.year}</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{edu.degree}</h3>
-                <p className="text-gray-600 mb-4">{edu.institution}</p>
-                <p className="text-sm text-gray-500">{edu.year}</p>
               </CardContent>
             </Card>
           ))}
