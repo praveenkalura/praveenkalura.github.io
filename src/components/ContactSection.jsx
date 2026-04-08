@@ -23,6 +23,19 @@ function ClustrMapsGlobe() {
       }
     });
 
+    const forceGlobeVisible = () => {
+      container.querySelectorAll(".clstrm_inner").forEach((element) => {
+        element.style.setProperty("display", "block", "important");
+      });
+
+      container.querySelectorAll(".clstrm_globe").forEach((element) => {
+        element.classList.remove("velocity-animating");
+        element.style.setProperty("opacity", "1", "important");
+        element.style.setProperty("visibility", "visible", "important");
+        element.style.setProperty("transform", "scale(1)", "important");
+      });
+    };
+
     const revealGlobe = () => {
       const globe = container.querySelector(".clstrm_outer");
       const clustrMapsJquery = window.clustrm_jq;
@@ -41,15 +54,10 @@ function ClustrMapsGlobe() {
         clustrMapsJquery(window).triggerHandler("load");
       }
 
-      container.querySelectorAll(".clstrm_inner").forEach((element) => {
-        element.style.display = "block";
-      });
-
-      container.querySelectorAll(".clstrm_globe").forEach((element) => {
-        element.style.opacity = "1";
-        element.style.visibility = "visible";
-        element.style.transform = "scale(1)";
-      });
+      forceGlobeVisible();
+      timers.push(window.setTimeout(forceGlobeVisible, 1000));
+      timers.push(window.setTimeout(forceGlobeVisible, 2000));
+      timers.push(window.setTimeout(forceGlobeVisible, 4000));
     };
 
     const script = document.createElement("script");
