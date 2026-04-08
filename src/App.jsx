@@ -21,8 +21,8 @@ function getRoute() {
     return "blogs";
   }
 
-  if (hash === "#/resources" || hash === "#resources") {
-    return "resources";
+  if (hash === "#/apps" || hash === "#apps" || hash === "#/resources" || hash === "#resources") {
+    return "apps";
   }
 
   if (hash === "#/events" || hash === "#events") {
@@ -55,7 +55,7 @@ export default function App() {
       {route === "publications" ? <Publications /> : null}
       {route === "projects" ? <Projects /> : null}
       {route === "blogs" ? <Blogs /> : null}
-      {route === "resources" ? <MaintenancePage title="Resources" /> : null}
+      {route === "apps" ? <MaintenancePage title="Apps" /> : null}
       {route === "events" ? <MaintenancePage title="Events" /> : null}
       {route === "gallery" ? <MaintenancePage title="Gallery" /> : null}
       {route === "contact" ? <Contact /> : null}

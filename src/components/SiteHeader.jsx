@@ -7,7 +7,7 @@ const navItems = [
   ["Projects", "#/projects"],
   ["Publications", "#/publications"],
   ["Blogs", "#/blogs"],
-  ["Resources", "#/resources"],
+  ["Apps", "#/apps"],
   ["Events", "#/events"],
   ["Gallery", "#/gallery"],
   ["Contact", "#/contact"],
