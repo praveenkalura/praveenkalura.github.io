@@ -9,6 +9,7 @@ export const profileData = {
   ],
   location: "Rishikesh, Uttarakhand, India",
   email: "praveenkalura@gmail.com",
+  alternateEmail: "praveen.nihr@zohomail.in",
   phone: "+91-9627988707",
   resume: "/files/Praveen_Kalura_Resume_2026.pdf",
   bio: "I am a hydrologist and geospatial scientist specializing in water resources, remote sensing, and WebGIS, with a strong focus on research and data-driven analysis. My core research domains are hydrological modeling, climate change impact assessment, the application of satellite data for basin-scale water resource evaluation and Full Stack WebGIS application development. My research integrates geospatial data, climate datasets, and hydrological processes to address challenges related to water availability and sustainability.",
