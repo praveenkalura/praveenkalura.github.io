@@ -21,6 +21,14 @@ export default function Publications() {
                 <img src="https://www.researchgate.net/favicon.ico" alt="" className="h-5 w-5" />
                 <span>ResearchGate</span>
               </a>
+              <a href="https://orcid.org/0000-0002-3722-138X" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition-colors hover:bg-gray-100">
+                <img src="https://orcid.org/favicon.ico" alt="" className="h-5 w-5" />
+                <span>ORCID</span>
+              </a>
+              <a href="https://www.webofscience.com/wos/author/record/LFS-4835-2024" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition-colors hover:bg-gray-100">
+                <img src="https://www.webofscience.com/favicon.ico" alt="" className="h-5 w-5" />
+                <span>Web of Science</span>
+              </a>
             </div>
           </div>
 
