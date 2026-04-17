@@ -354,6 +354,67 @@ export const grants = [
   },
 ];
 
+export const events = [
+  {
+    id: 1,
+    title: "EQIPA Platform Training at NIH Roorkee",
+    date: "2025-05-17",
+    type: "Training",
+    location: "Roorkee, India",
+    image: "https://raw.githubusercontent.com/praveenkalura/praveenkalura/main/public/images/events/eqipa-training.jpg",
+    description:
+      "Completed a four-day training on the EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment) platform organized by the World Bank's Water-Informatics team. The sessions covered irrigation performance analytics, platform maintenance, and practical workflows with GRASS GIS and GeoServer.",
+    highlights: ["National Institute of Hydrology", "World Bank Water-Informatics Team", "GRASS GIS", "GeoServer"],
+    engagement: "58 reactions · 1 comment",
+    link: "https://ipa.cwc.gov.in",
+    linkLabel: "Open EQIPA Website",
+  },
+  {
+    id: 2,
+    title: "ICTP Workshop Participation in Trieste",
+    date: "2024-05-22",
+    type: "Workshop",
+    location: "Trieste, Italy",
+    image: "https://raw.githubusercontent.com/praveenkalura/praveenkalura/main/public/images/events/ictp-workshop.jpg",
+    description:
+      "Participated in the 6th Workshop on Water Resources in Developing Countries focused on hydroclimate modeling, information tools, and simulation techniques at The Abdus Salam International Centre for Theoretical Physics (ICTP).",
+    highlights: ["ICTP", "Hydroclimate Modeling", "Information Tools", "Simulation Techniques"],
+    engagement: "70 reactions · 6 comments",
+    link: "https://indico.ictp.it/event/10477/",
+    linkLabel: "Visit Event Page",
+  },
+  {
+    id: 3,
+    title: "ICTP International Research Networking Milestone",
+    date: "2024-06-03",
+    type: "Academic Exchange",
+    location: "Trieste, Italy",
+    image: "https://raw.githubusercontent.com/praveenkalura/praveenkalura/main/public/images/events/ictp-gratitude.jpg",
+    description:
+      "Shared reflections after the ICTP workshop, highlighting the opportunity to learn from and connect with researchers from around the world working on water resources and hydroclimate challenges.",
+    highlights: ["Global Research Community", "Knowledge Exchange", "Water Resources", "ICTP"],
+    engagement: "46 reactions · 2 comments",
+    link: "https://indico.ictp.it/event/10477/",
+    linkLabel: "Visit Event Page",
+  },
+  {
+    id: 4,
+    title: "AGU Chapman Conference on Remote Sensing of the Water Cycle",
+    date: "2023-02-10",
+    type: "Conference",
+    location: "Honolulu, Hawaii, USA",
+    image: "https://raw.githubusercontent.com/praveenkalura/praveenkalura/main/public/images/events/agu-chapman-logo.jpg",
+    imageFit: "contain",
+    imageBackground: "bg-white",
+    description:
+      "Attended the AGU Chapman Conference on Remote Sensing of the Water Cycle to engage with leading experts and explore emerging approaches for addressing hydrological challenges through remote sensing.",
+    highlights: ["AGU Chapman Conference", "Remote Sensing", "Hydrology", "Water Cycle"],
+    engagement: "98 reactions · 1 comment",
+    link: "https://www.agu.org/Chapman-Remote-Sensing",
+    linkLabel: "Visit Event Page",
+  },
+];
+
 export const blogPosts = [
   {
     id: 1,
