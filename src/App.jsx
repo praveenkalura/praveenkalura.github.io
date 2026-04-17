@@ -3,6 +3,7 @@ import "./App.css";
 import Apps from "./pages/Apps.jsx";
 import Blogs from "./pages/Blogs.jsx";
 import Contact from "./pages/Contact.jsx";
+import Events from "./pages/Events.jsx";
 import MaintenancePage from "./pages/MaintenancePage.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Projects from "./pages/Projects.jsx";
@@ -57,7 +58,7 @@ export default function App() {
       {route === "projects" ? <Projects /> : null}
       {route === "blogs" ? <Blogs /> : null}
       {route === "apps" ? <Apps /> : null}
-      {route === "events" ? <MaintenancePage title="Events" /> : null}
+      {route === "events" ? <Events /> : null}
       {route === "gallery" ? <MaintenancePage title="Gallery" /> : null}
       {route === "contact" ? <Contact /> : null}
       {route === "home" ? <Portfolio /> : null}
