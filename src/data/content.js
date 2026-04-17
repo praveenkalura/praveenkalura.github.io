@@ -416,3 +416,52 @@ export const blogPosts = [
     thumbnail: "https://cdn-images-1.medium.com/max/868/1*NA_eZGNKu55zSuB701u6vA.jpeg",
   },
 ];
+
+export const apps = [
+  {
+    id: 1,
+    title: "IMD Climate Data Extractor",
+    category: "Desktop-Launched Local Web App",
+    status: "Available",
+    backend: "Flask backend on http://127.0.0.1:8080",
+    description:
+      "A local-first workflow for clipping IMD gridded climate NetCDF datasets against an uploaded polygon shapefile and exporting the extracted rainfall and temperature series as CSV files inside a ZIP archive.",
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1shjkZ2ElENB0jHa9j9QP1KA-PtP6-wmD",
+    sourceUrl: "https://drive.google.com/file/d/1shjkZ2ElENB0jHa9j9QP1KA-PtP6-wmD/view?usp=drive_link",
+    highlights: [
+      "Uploads shapefile components and previews the polygon on a Leaflet map",
+      "Validates requested dates against the actual IMD NetCDF time ranges on disk",
+      "Extracts rainfall, maximum temperature, and minimum temperature for intersecting grid cells",
+      "Returns a ZIP archive with CSV outputs, grid-point shapefiles, and the uploaded source shapefile",
+    ],
+    supportedItems: [
+      "Variables: rainfall (rf), maximum temperature (MaxT), minimum temperature (MinT)",
+      "Expected IMD NetCDF files: RF25_ind1901_2025_rfp25.nc, Maxtemp_MaxT_1951_2025.nc, Mintemp_MinT_1951_2025.nc",
+      "Packaged Windows executable workflow with optional Python source run",
+    ],
+    outputSummary: "Downloads a single ZIP package containing one CSV per selected variable plus intersecting point shapefiles in WGS84.",
+  },
+  {
+    id: 2,
+    title: "CMIP6 Downloader",
+    category: "Desktop-Launched Local Web App",
+    status: "Available",
+    backend: "Local browser app for NASA NEX-GDDP-CMIP6 downloads",
+    description:
+      "A guided local downloader for CMIP6 climate data from NASA NEX-GDDP-CMIP6, built to help users choose models, scenarios, variables, dates, and area of interest without manually composing THREDDS requests.",
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1nNy883d3_G-3jwfeL8AWRFuMoyx-9tkg",
+    sourceUrl: "https://drive.google.com/file/d/1nNy883d3_G-3jwfeL8AWRFuMoyx-9tkg/view?usp=drive_link",
+    highlights: [
+      "Supports multiple CMIP6 models, emissions scenarios, and variables in one guided workflow",
+      "Accepts manual bounding boxes or uploaded AOI files including GeoJSON, KML, and shapefiles",
+      "Shows the selected extent on an interactive Leaflet map centered on India",
+      "Downloads NetCDF files directly into a structured local folder with progress tracking and retry support",
+    ],
+    supportedItems: [
+      "Variables: precipitation (pr), tasmax, tasmin",
+      "Scenarios: historical, ssp126, ssp245, ssp370, ssp585",
+      "Source: NASA NEX-GDDP-CMIP6 via THREDDS/NCSS services",
+    ],
+    outputSummary: "Saves NetCDF files directly into model/scenario/variable folders on the user's machine instead of bundling a ZIP archive.",
+  },
+];
