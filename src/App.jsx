@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Apps from "./pages/Apps.jsx";
+import Background from "./pages/Education.jsx";
 import Blogs from "./pages/Blogs.jsx";
 import Contact from "./pages/Contact.jsx";
 import Events from "./pages/Events.jsx";
@@ -21,6 +22,10 @@ function getRoute() {
 
   if (hash === "#/blogs" || hash === "#blogs") {
     return "blogs";
+  }
+
+  if (hash === "#/background" || hash === "#background" || hash === "#/education" || hash === "#education") {
+    return "background";
   }
 
   if (hash === "#/apps" || hash === "#apps" || hash === "#/resources" || hash === "#resources") {
@@ -54,6 +59,7 @@ export default function App() {
 
   return (
     <div className="App">
+      {route === "background" ? <Background /> : null}
       {route === "publications" ? <Publications /> : null}
       {route === "projects" ? <Projects /> : null}
       {route === "blogs" ? <Blogs /> : null}

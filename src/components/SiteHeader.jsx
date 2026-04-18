@@ -4,6 +4,7 @@ import { profileData } from "@/data/content";
 
 const navItems = [
   ["About", "#about"],
+  ["Background", "#/background"],
   ["Projects", "#/projects"],
   ["Publications", "#/publications"],
   ["Blogs", "#/blogs"],
@@ -18,10 +19,10 @@ export function SiteHeader() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <a href="#about" className="flex items-center">
-            <img src="/images/signature.png" alt={profileData.shortName} className="h-10 w-auto" />
+            <img src="/images/signature.png" alt={profileData.shortName} className="h-8 w-auto max-w-[12rem] sm:h-10 sm:max-w-none" />
           </a>
           <div className="hidden items-center gap-4 text-xs lg:flex xl:gap-6 xl:text-sm">
             {navItems.map(([label, href]) => (
@@ -41,7 +42,7 @@ export function SiteHeader() {
           </button>
         </div>
         {isMenuOpen ? (
-          <div className="border-t border-gray-100 py-4 lg:hidden">
+          <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-gray-100 py-4 lg:hidden">
             <div className="grid gap-2 text-sm">
               {navItems.map(([label, href]) => (
                 <a
