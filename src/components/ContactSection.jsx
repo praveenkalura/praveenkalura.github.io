@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { BookOpen, FileText, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Building2, Mail, Phone, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { profileData } from "@/data/content";
@@ -9,6 +9,17 @@ const CLUSTRMAPS_TOKEN = "xY28SGOT595prFPSJIsPB4d8Gt7IcYY-M1EmIHRxrlE";
 const CLUSTRMAPS_SITE_URL = "https://clustrmaps.com/site/1c9nz";
 const CLUSTRMAPS_GLOBE_URL = `https://clustrmaps.com/globe.js?d=${CLUSTRMAPS_TOKEN}&w=220`;
 const CLUSTRMAPS_FALLBACK_IMAGE = `https://clustrmaps.com/map_v2.png?d=${CLUSTRMAPS_TOKEN}&cl=ffffff&w=220`;
+
+const socialPlatforms = [
+  { key: "linkedin", label: "LinkedIn", iconUrl: "https://www.linkedin.com/favicon.ico" },
+  { key: "bluesky", label: "Bluesky", icon: "bluesky" },
+  { key: "x", label: "X", icon: "x" },
+  { key: "github", label: "GitHub", icon: "github" },
+  { key: "medium", label: "Medium", icon: "medium" },
+  { key: "scholar", label: "Google Scholar", icon: "googlescholar" },
+  { key: "researchgate", label: "ResearchGate", icon: "researchgate" },
+  { key: "orcid", label: "ORCID", icon: "orcid" },
+];
 
 function ClustrMapsGlobe() {
   const containerRef = useRef(null);
@@ -148,61 +159,100 @@ function ClustrMapsGlobe() {
 
 export function ContactSection({ className = "" }) {
   const [contactState, handleContactSubmit] = useForm("mnjordoz");
-  const emails = [profileData.email, profileData.alternateEmail].filter(Boolean);
+  const emails = [profileData.email].filter(Boolean);
+  const socialProfiles = socialPlatforms
+    .map((platform) => ({
+      ...platform,
+      url: profileData.socialLinks?.[platform.key],
+      handle: profileData.socialHandles?.[platform.key],
+    }))
+    .filter((platform) => platform.url);
 
   return (
     <section id="contact" className={`bg-gray-900 px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-16 ${className}`}>
       <div className="mx-auto max-w-7xl">
         <h2 className="mb-12 text-center text-3xl font-bold sm:text-4xl">Contact Details</h2>
-        <div className="grid gap-10 lg:grid-cols-[244px_minmax(0,1fr)_minmax(0,1.2fr)] lg:items-start lg:gap-14 xl:gap-20">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-400">Site Visitors</p>
-            <ClustrMapsGlobe />
+        <div className="mb-12">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-400">Social and Academic Profiles</p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {socialProfiles.map((platform) => (
+                <a
+                  key={platform.key}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-teal-400/40 hover:bg-white/10"
+                >
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white p-2">
+                        <img
+                          src={platform.iconUrl ?? `https://cdn.simpleicons.org/${platform.icon}`}
+                          alt={`${platform.label} logo`}
+                          className="h-6 w-6 object-contain"
+                        />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-white">{platform.label}</p>
+                    <p className="truncate text-sm text-gray-300">{platform.handle ?? platform.url}</p>
+                  </div>
+                </a>
+            ))}
           </div>
+        </div>
+        <div className="grid gap-8 lg:grid-cols-3 lg:items-stretch">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 lg:h-full">
+            <h3 className="mb-4 text-xl font-semibold sm:text-2xl">Get in Touch</h3>
+            <p className="mb-4 font-semibold text-white">{profileData.name}</p>
 
-          <div>
-            <h3 className="mb-6 text-xl font-semibold sm:text-2xl">Address</h3>
-            <div className="space-y-4 break-words text-gray-300">
-              <p className="font-semibold text-white">{profileData.name}</p>
-              {profileData.address.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
-              <div className="space-y-2 pt-6">
-                {emails.map((email) => (
-                  <p key={email}>
-                    <Mail className="inline w-5 h-5 mr-2" />
+            <div className="space-y-3">
+              <div className="rounded-2xl border border-white/10 bg-gray-950/20 p-3.5">
+                <div className="flex items-start gap-3">
+                  <Briefcase className="mt-0.5 h-5 w-5 text-teal-300" />
+                  <div>
+                    <p className="text-sm font-semibold text-white">Current Role</p>
+                    <p className="mt-0.5 text-sm leading-5 text-gray-300">{profileData.role}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-gray-950/20 p-3.5">
+                <div className="flex items-start gap-3">
+                  <Building2 className="mt-0.5 h-5 w-5 text-teal-300" />
+                  <div>
+                    <p className="text-sm font-semibold text-white">Affiliation</p>
+                    <div className="mt-0.5 space-y-0.5 text-sm leading-5 text-gray-300">
+                      {profileData.affiliation.map((line) => (
+                        <p key={line}>{line}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {emails.map((email) => (
+                <div key={email} className="rounded-2xl border border-white/10 bg-gray-950/20 p-3.5">
+                  <p className="flex items-center gap-3 text-sm text-gray-200">
+                    <Mail className="h-5 w-5 text-teal-300" />
                     <a href={`mailto:${email}`} className="hover:text-teal-400 transition-colors">
                       {email}
                     </a>
                   </p>
-                ))}
-                <p>
-                  <Phone className="inline w-5 h-5 mr-2" />
+                </div>
+              ))}
+
+              <div className="rounded-2xl border border-white/10 bg-gray-950/20 p-3.5">
+                <p className="flex items-center gap-3 text-sm text-gray-200">
+                  <Phone className="h-5 w-5 text-teal-300" />
                   <a href={`tel:${profileData.phone}`} className="hover:text-teal-400 transition-colors">
                     {profileData.phone}
                   </a>
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3 pt-6 sm:gap-4">
-                <a href={profileData.socialLinks.linkedin} className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
-                  <Linkedin size={20} />
-                </a>
-                <a href={profileData.socialLinks.scholar} className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
-                  <BookOpen size={20} />
-                </a>
-                <a href={profileData.socialLinks.researchgate} className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
-                  <FileText size={20} />
-                </a>
-                <a href={profileData.socialLinks.github} className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
-                  <Github size={20} />
-                </a>
-              </div>
             </div>
           </div>
 
-          <div>
-            <h3 className="mb-6 text-xl font-semibold sm:text-2xl">Send us a Message</h3>
-            <form className="space-y-4" onSubmit={handleContactSubmit}>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-7 lg:h-full">
+            <h3 className="mb-6 text-xl font-semibold sm:text-2xl">Send Me a Message</h3>
+            <form className="flex h-full flex-col space-y-4" onSubmit={handleContactSubmit}>
               <Input id="email" name="email" type="email" placeholder="Email*" required className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400" />
               <ValidationError prefix="Email" field="email" errors={contactState.errors} className="text-sm text-red-300" />
               <textarea
@@ -210,16 +260,23 @@ export function ContactSection({ className = "" }) {
                 name="message"
                 placeholder="Message*"
                 required
-                rows={5}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                rows={8}
+                className="min-h-[240px] w-full flex-1 rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
               <ValidationError prefix="Message" field="message" errors={contactState.errors} className="text-sm text-red-300" />
-              <Button type="submit" disabled={contactState.submitting} className="w-full bg-teal-600 hover:bg-teal-700 text-white py-6">
+              <Button type="submit" disabled={contactState.submitting} className="w-full bg-teal-600 py-6 text-white hover:bg-teal-700">
                 {contactState.submitting ? "Sending..." : "Send Message"}
               </Button>
-              {contactState.succeeded ? <p className="text-sm text-teal-200">Message sent. Thank you for reaching out.</p> : null}
+              {contactState.succeeded ? <p className="text-sm text-teal-200">Message sent. Thank you for reaching out to me.</p> : null}
               <ValidationError errors={contactState.errors} className="text-sm text-red-300" />
             </form>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-7 lg:h-full">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-400">Site Visitors</p>
+            <div className="flex h-full flex-col items-start">
+              <ClustrMapsGlobe />
+            </div>
           </div>
         </div>
       </div>

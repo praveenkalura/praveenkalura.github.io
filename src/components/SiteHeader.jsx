@@ -4,13 +4,12 @@ import { profileData } from "@/data/content";
 
 const navItems = [
   ["About", "#about"],
-  ["Background", "#/background"],
-  ["Projects", "#/projects"],
   ["Publications", "#/publications"],
-  ["Blogs", "#/blogs"],
   ["Apps", "#/apps"],
+  ["Projects", "#/projects"],
   ["Events", "#/events"],
-  ["Gallery", "#/gallery"],
+  ["Background", "#/background"],
+  ["Blogs", "#/blogs"],
   ["Contact", "#/contact"],
 ];
 
@@ -24,7 +23,7 @@ export function SiteHeader() {
           <a href="#about" className="flex items-center">
             <img src="/images/signature.png" alt={profileData.shortName} className="h-8 w-auto max-w-[12rem] sm:h-10 sm:max-w-none" />
           </a>
-          <div className="hidden items-center gap-4 text-xs lg:flex xl:gap-6 xl:text-sm">
+          <div className="hidden items-center gap-5 text-sm font-medium lg:flex xl:gap-7 xl:text-base">
             {navItems.map(([label, href]) => (
               <a key={href} href={href} className="text-gray-600 hover:text-gray-900 transition-colors">
                 {label}
@@ -43,7 +42,7 @@ export function SiteHeader() {
         </div>
         {isMenuOpen ? (
           <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-gray-100 py-4 lg:hidden">
-            <div className="grid gap-2 text-sm">
+            <div className="grid gap-2 text-base font-medium">
               {navItems.map(([label, href]) => (
                 <a
                   key={href}
