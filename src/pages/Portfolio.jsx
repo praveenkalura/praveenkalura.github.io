@@ -134,7 +134,7 @@ export default function Portfolio() {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {blogPosts.slice(0, 3).map((post) => (
-            <a key={post.id} href={post.url} target="_blank" rel="noreferrer" className="block h-full">
+            <a key={post.id} href={post.url} target={post.url.startsWith("#") ? undefined : "_blank"} rel={post.url.startsWith("#") ? undefined : "noreferrer"} className="block h-full">
               <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all group cursor-pointer overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-blue-100 to-teal-100 overflow-hidden">
                   <img src={post.thumbnail} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />

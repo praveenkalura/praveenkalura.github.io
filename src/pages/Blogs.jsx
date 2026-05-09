@@ -20,7 +20,7 @@ export default function Blogs() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <a key={post.id} href={post.url} target="_blank" rel="noreferrer" className="block h-full">
+              <a key={post.id} href={post.url} target={post.url.startsWith("#") ? undefined : "_blank"} rel={post.url.startsWith("#") ? undefined : "noreferrer"} className="block h-full">
                 <Card className="h-full overflow-hidden border-0 shadow-lg transition-all hover:shadow-xl">
                   <div className="h-52 overflow-hidden bg-teal-50">
                     <img src={post.thumbnail} alt={post.title} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
@@ -41,7 +41,7 @@ export default function Blogs() {
                     <h2 className="mb-3 text-xl font-bold leading-7 text-gray-900">{post.title}</h2>
                     <p className="mb-5 text-sm leading-6 text-gray-600">{post.excerpt}</p>
                     <span className="inline-flex items-center text-sm font-semibold text-teal-700">
-                      Read on Medium <ChevronRight className="ml-1" size={16} />
+                      {post.url.startsWith("#") ? "Read article" : "Read on Medium"} <ChevronRight className="ml-1" size={16} />
                     </span>
                   </CardContent>
                 </Card>

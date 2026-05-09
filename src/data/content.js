@@ -775,6 +775,18 @@ export const events = [
 
 export const blogPosts = [
   {
+    id: 7,
+    slug: "drang-drung-glacier-timelapse",
+    title: "Ninety Minutes at a Time: How a Roadside Camera Caught a Himalayan Glacier in the Act",
+    excerpt:
+      "A time-lapse record from Drang Drung Glacier shows that slow Himalayan glaciers have a richer, more hydrologically restless inner life than satellites have been telling us.",
+    date: "2026-05-09",
+    category: "Glaciology",
+    readTime: "9 min read",
+    url: "#/blogs/drang-drung-glacier-timelapse",
+    thumbnail: "https://img.youtube.com/vi/tvMpqS_PE7E/maxresdefault.jpg",
+  },
+  {
     id: 1,
     title: "The Big Nature Turnaround: why the Nature Transition X-Curve matters",
     excerpt: "X-Curve thinking offers a simple way to see what is happening in the relationship of global economy with nature.",

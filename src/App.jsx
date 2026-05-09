@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Apps from "./pages/Apps.jsx";
+import BlogArticle from "./pages/BlogArticle.jsx";
 import Background from "./pages/Education.jsx";
 import Blogs from "./pages/Blogs.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -22,6 +23,10 @@ function getRoute() {
 
   if (hash === "#/blogs" || hash === "#blogs") {
     return "blogs";
+  }
+
+  if (hash === "#/blogs/drang-drung-glacier-timelapse") {
+    return "drang-drung-blog";
   }
 
   if (hash === "#/background" || hash === "#background" || hash === "#/education" || hash === "#education") {
@@ -63,6 +68,7 @@ export default function App() {
       {route === "publications" ? <Publications /> : null}
       {route === "projects" ? <Projects /> : null}
       {route === "blogs" ? <Blogs /> : null}
+      {route === "drang-drung-blog" ? <BlogArticle /> : null}
       {route === "apps" ? <Apps /> : null}
       {route === "events" ? <Events /> : null}
       {route === "gallery" ? <MaintenancePage title="Gallery" /> : null}
